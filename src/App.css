@@ -7,10 +7,12 @@
 .App {
   /* text-align: center; */
   margin-top: 6%;
+  width:"100%"
 }
 
 .sidebar {
-  /* max-width: 16rem; */
+  max-width: 16rem;
+  min-width: 10rem;
   /* width: 16rem; */
   border: 1px solid rgba(0, 0, 0, 0.1);
 }
@@ -20,15 +22,44 @@
   margin-left: 20;
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  grid-gap: 0.8rem;
-}
-
-.card:hover {
-  transform: scale(1.04);
-  transition: 200ms;
-  transition-timing-function: ease-in-out;
+  grid-gap: 1.2rem;
 }
 
 .card {
   max-height: 500px;
+}
+.similar:hover{
+  width:150px;
+  transition: width 2s linear 1s;
+}
+
+.cat:hover{
+  cursor: pointer;
+  box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
+  border:grey !important;
+}
+
+
+li:hover{
+  font-weight: none !important; 
+}
+.offcanvas{
+  width:50% !important;
+}  
+
+.similarContainer {
+  flex-grow: 3;
+  margin-left: 20;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-gap: 1rem;
+}
+
+
+a{
+  text-decoration: none;
+
+}
+.delete:hover{
+cursor: pointer;
 }

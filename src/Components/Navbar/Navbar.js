@@ -1,6 +1,8 @@
 import { Link, NavLink } from "react-router-dom";
 import styled from "styled-components";
 import "./Navbar.css";
+import "../../App.css"
+import { Badge } from "react-bootstrap";
 import Myntra_logo from "./NavImage/Myntra-logo-png-ico.png";
 import { MenNav } from "./MiniNavbar/Men";
 import { WomenNav } from "./MiniNavbar/WomenNav";
@@ -8,6 +10,9 @@ import { KidsNav } from "./MiniNavbar/KidsNav";
 import { HomeLivingNav } from "./MiniNavbar/HomeLivingNav";
 import { BeautyNav } from "./MiniNavbar/BeautyNav";
 import { StudioNav } from "./MiniNavbar/Studio";
+import { useContext, useState } from "react";
+import { UserContext } from "../Context/AuthContext";
+import Canvas from "../Canvas";
 // import { useAuth } from "../../Context/AuthContext";
 
 const Div = styled.nav`
@@ -27,12 +32,14 @@ const Div = styled.nav`
       0 22.3px 17.9px rgba(0, 0, 0, 0.072), 0 80px 60px rgba(0, 0, 0, 0.1);
 `;
 
-export const Navbar = () => {
-   //const { currentUser, logout } = useAuth();
-
+export const Navbar = (props) => {
+   const {user, setUser ,wishlist,bag} = useContext(UserContext);
+   const [showbag,setShowBag] = useState(false);
+   const [showwishlist,setShowWishlist] = useState(false);
+   //const[search,setSearch] = useState("");
    return (
       <>
-         <Div>
+         <Div style={{zIndex:"6"}}>
             <Link className="link1" to="/">
                <img
                   style={{
@@ -52,7 +59,7 @@ export const Navbar = () => {
                   style={{
                      marginLeft: "3%",
                      fontWeight: "bold",
-                     fontSize: "10px",
+                     fontSize: "14px",
                      textDecoration: "none",
                      color: "#282C3F",
                      paddingBottom: "10px",
@@ -60,7 +67,7 @@ export const Navbar = () => {
                      paddingRight: "5px",
                      //   hoverBorderBottom:"5px solid #ee5f73"
                   }}
-                  to="/men"
+                  to="/shirts"
                >
                   MEN
                </NavLink>
@@ -74,7 +81,7 @@ export const Navbar = () => {
                      marginLeft: "3%",
                      marginBottom: "-2%",
                      fontWeight: "bold",
-                     fontSize: "10px",
+                     fontSize: "14px",
                      textDecoration: "none",
                      color: "#282C3F",
                      paddingBottom: "10px",
@@ -94,7 +101,7 @@ export const Navbar = () => {
                   style={{
                      marginLeft: "3%",
                      fontWeight: "bold",
-                     fontSize: "10px",
+                     fontSize: "14px",
                      textDecoration: "none",
                      color: "#282C3F",
                      paddingBottom: "10px",
@@ -117,7 +124,7 @@ export const Navbar = () => {
                   style={{
                      //   marginLeft: "3%",
                      fontWeight: "bold",
-                     fontSize: "10px",
+                     fontSize: "14px",
                      textDecoration: "none",
                      color: "#282C3F",
                      paddingBottom: "10px",
@@ -138,7 +145,7 @@ export const Navbar = () => {
                   style={{
                      marginLeft: "3%",
                      fontWeight: "bold",
-                     fontSize: "10px",
+                     fontSize: "14px",
                      textDecoration: "none",
                      color: "#282C3F",
                      paddingBottom: "10px",
@@ -159,7 +166,7 @@ export const Navbar = () => {
                   style={{
                      marginLeft: "3%",
                      fontWeight: "bold",
-                     fontSize: "10px",
+                     fontSize: "14px",
                      textDecoration: "none",
                      color: "#282C3F",
                      paddingBottom: "10px",
@@ -176,69 +183,80 @@ export const Navbar = () => {
 
             {/* <p className="nw">NEW</p> */}
 
-            <div className="inp1">
+            <div className="inp1" style={{width:"30%"}}>
                <input
                   type="text"
                   className="inp"
                   placeholder="Search for products, brands and more"
+                  onChange={(e)=>{props.setSearch(e.target.value)}}
                />
             </div>
 
-            <p style={{ marginLeft: "4%" }}>
+            <p style={{ marginLeft: "4%",marginTop:"1%" }}>
                <img
-                  style={{ marginLeft: "15%", fontSize: "10px" }}
+                  style={{ marginLeft: "15%", fontSize: "14px" }}
                   src="https://img.icons8.com/material-outlined/24/000000/gender-neutral-user.png"
                   alt=""
                />
                <br></br>
                <span >
-               <Link  to={"/"} className="rightLink" style={{fontSize:"10px"}}>
-                      Logout
-                     </Link>
-                  {" "}
-                  {/* {currentUser ? (
-                     <Link onClick={logout} to={"/"} className="rightLink" >
+               
+                  {user ? (
+                     <Link  to={"/"} onClick={()=>{setUser("")}} className="rightLink" >
                       Logout
                      </Link>
                   ) : (
                      <Link to={"/login"}  className="rightLink">Login</Link>
-                  )} */}
+                  )}
                </span> 
             </p>
 
-            <p style={{ marginLeft: "2%" }}>
+            <p style={{ marginLeft: "2%" ,marginTop:"1%" }}>
+
                <img
                   style={{ marginLeft: "5%" }}
                   src="https://img.icons8.com/material-outlined/24/000000/like--v1.png"
                   alt=""
                />
+               <Badge style={{background:"crimson !important",color:"white"}} pill={true}>{wishlist?wishlist.length:"0"}</Badge>
                <br></br>
                <span>
-                  <Link to={"/wishlist"} className="rightLink" style={{fontSize:"10px"}}>Wishlist</Link>
+                  <a href="#" className="rightLink" style={{fontSize:"14px"}} onClick={()=>{
+                  setShowWishlist(true)
+               }} >Wishlist</a>
                </span>
             </p>
 
-            <Link
+            <a
                style={{
                   marginLeft: "2%",
-                  fontSize: "10px",
+                  fontSize: "14px",
                   textDecoration: "none",
                   color: "#282C3F",
+                  width:"60px",
+                  marginTop:"1%"
                }}
                // to="/cart"
-               to="/bag" 
+               href="#"
+               onClick={()=>{
+                  setShowBag(true)
+               }}
             >
                {" "}
-               <p>
+               <p >
                   <img
                      style={{ marginLeft: "3%" }}
                      src="https://img.icons8.com/material-outlined/24/000000/shopping-bag--v1.png"
                      alt=""
                   />
+                  <Badge style={{background:"crimson !important",color:"white"}} pill={true}>{bag ? bag.length : "0"}</Badge>
                   <br></br>
                   <span className="rightLink">Bag</span>
                </p>
-            </Link>
+            </a>
+            <Canvas show={showbag} setShow={setShowBag} property="bag"/>
+            <Canvas show={showwishlist} setShow={setShowWishlist} property="wishlist"/>
+
          </Div>
       </>
    );

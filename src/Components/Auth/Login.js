@@ -1,27 +1,33 @@
-import React, { useRef, useState } from "react";
+import React, { useContext, useRef, useState } from "react";
 import { Form, Button, Card, Alert, Container } from "react-bootstrap";
 // import { useAuth } from "../Context/AuthContext";
 import { Link, useNavigate } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css"
 
-
+import AuthData from "./LoginDataDummmy";
+import { UserContext } from "../Context/AuthContext";
 export default function Login() {
    const emailRef = useRef();
    const passwordRef = useRef();
+   const {setUser} = useContext(UserContext);
    // const { login } = useAuth();
    const [error, setError] = useState("");
    const navigate = useNavigate();
 
-   async function handleSubmit(e) {
+   function handleSubmit(e) {
       e.preventDefault();
-      try {
-         setError("");
-         // await login(emailRef.current.value, passwordRef.current.value);
-         navigate("/");
-      } catch (e) {
-         console.log({ e });
-         setError(e.message);
+      const data = AuthData.filter(({email,password})=>{
+         if(email === emailRef.current.value && password === passwordRef.current.value){
+            return true;
+         }
+      })
+      if(data.length!==0){
+         setUser(emailRef.current.value);
+         navigate("/home",{replace:"true"});
+      }else{
+         alert("Credentials do not match");
       }
+      
    }
 
    const [values, setValues] = React.useState({

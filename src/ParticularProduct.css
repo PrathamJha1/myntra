@@ -1,0 +1,289 @@
+.image-grid-container {
+    float: left;
+    width: 58%;
+}
+.image-grid-col50 {
+    width: 49.5%;
+    float: left;
+    margin-bottom: 1%;
+    position: relative;
+}
+.image-grid-imageContainer {
+    height: 0;
+    padding-top: 133.33333333333331%;
+    overflow: hidden;
+    position: relative;
+    border: 1px solid #f5f5f6;
+}
+
+.image-grid-skeletonLoader {
+    position: absolute;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    width: 99.99%;
+    height: 99.99%;
+    background: #eaeaec -webkit-gradient(linear,left top,right top,color-stop(0,#eaeaec),color-stop(35%,#dad9d9),color-stop(70%,#eaeaec),to(#eaeaec)) no-repeat;
+    background: #eaeaec linear-gradient(left,#eaeaec,#dad9d9 35%,#eaeaec 70%,#eaeaec) no-repeat;
+    background-size: 800px 100%;
+    -webkit-animation: image-grid-loading-skeleton 1.7s cubic-bezier(.25,.46,.45,.94) infinite forwards;
+    animation: image-grid-loading-skeleton 1.7s cubic-bezier(.25,.46,.45,.94) infinite forwards;
+}
+
+.image-grid-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 2;
+    width: 100%;
+    height: 100%;
+    background-repeat: no-repeat;
+    background-position: 0 0;
+    background-origin: border-box;
+    background-size: cover;
+    -webkit-transition: -webkit-transform .4s;
+    transition: -webkit-transform .4s;
+    transition: transform .4s;
+    transition: transform .4s,-webkit-transform .4s;
+    will-change: transform;
+}
+.common-clearfix:after {
+    clear: both;
+}
+.common-clearfix:after, .common-clearfix:before {
+    content: " ";
+    display: table;
+}
+clearfix:before {
+    content: " ";
+    display: table;
+}
+@media (min-width: 980px){
+
+    .pdp-description-container {
+        min-height: 820px;
+        width: 42%;
+        float: left;
+        padding: 0 0 0 30px;
+        -webkit-box-sizing: border-box;
+        box-sizing: border-box;
+    }
+}
+@media (min-width: 600px){
+
+    .pdp-description-container {
+        margin-top: 0;
+    }
+}
+
+
+@media (min-width: 600px){
+
+    .pdp-price-info {
+        margin-right: 0;
+    }
+    .pdp-price-info {
+        padding: 0 0 10px;
+    }
+}
+.pdp-title {
+    color: #282c3f;
+    padding: 0 20px 0 0;
+    font-size: 24px;
+    font-weight: 700;
+    line-height: 1;
+}
+.pdp-name, .pdp-title {
+    margin-top: 0;
+    margin-bottom: 0;
+
+}
+.pdp-name {
+    color: #535665;
+    padding: 5px 20px 14px 0;
+    font-size: 20px;
+    opacity: .8;
+    font-weight: 400;
+}
+.index-overallRatingContainer {
+    width: auto;
+    border-bottom: 1px solid #d4d5d9;
+}
+.pdp-discount-container {
+    color: #696e79;
+    font-size: 14px;
+    margin-top: 14px;
+    margin-bottom: 5px;
+    display: inline-block;
+}
+.pdp-mrp, .pdp-price {
+    color: #282c3f;
+    margin-right: 12px;
+}
+.pdp-mrp,.pdp-price {
+    height: 22px;
+    opacity: .8;
+    font-size: 20px;
+    line-height: 1.2;
+}
+.pdp-discount {
+    font-size: 20px;
+    font-weight: 700;
+    letter-spacing: .5px;
+    color: #ff905a;
+}
+.pdp-selling-price {
+    font-size: 16px;
+    margin: 0 0 10px;
+}
+.index-overallRating {
+    margin-bottom: 12px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    width: -webkit-fit-content;
+    width: -moz-fit-content;
+    width: fit-content;
+    height: 29px;
+    padding: 8px;
+    border: 1px solid #eaeaec;
+    border-radius: 2px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: 700;
+    color: #282c3f;
+}
+.index-overallRating .index-separator {
+    margin-left: 8px;
+    margin-top: -2px;
+    color: #d4d5d9;
+    width: 1px;
+}
+.index-overallRating .index-ratingsCount {
+    margin-left: 8px;
+    font-weight: 400;
+    color: #535766;
+    width: -webkit-fit-content;
+    width: -moz-fit-content;
+    width: fit-content;
+}
+.pdp-discount-container {
+    color: #696e79;
+    font-size: 14px;
+    margin-top: 14px;
+    margin-bottom: 5px;
+    display: flex;
+}
+.pdp-vatInfo {
+    color: #03a685;
+    font-weight: 700;
+    font-size: 14px;
+    display: block;
+    margin: 5px 10px 0 0;
+}
+.pdp-price{
+    font-weight: 700 !important;
+    color:black !important;
+}
+.pdp-fixed {
+    position: fixed;
+    bottom: 0;
+}
+.pdp-action-container {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    width: 100%;
+    position: relative;
+    z-index: 1;
+    margin-top: 15px;
+}
+.pdp-flex.pdp-center {
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+}
+.pdp-flex {
+    display: -webkit-inline-box;
+    display: -ms-inline-flexbox;
+    display: inline-flex;
+}
+.pdp-flex.pdp-center {
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+}
+.pdp-whiteBag {
+    margin-right: 12px;
+    -webkit-transform: scale(.9);
+    transform: scale(.9);
+}
+.sprites-whiteBag {
+    background-position: -2283px -40px;
+    width: 23px;
+    height: 22px;
+}
+.myntraweb-sprite {
+    background: url(https://constant.myntassets.com/web/assets/img/MyntraWebSprite_27_01_2021.png);
+    background-size: 1404px 105px;
+    display: inline-block;
+}
+.hov:hover{
+    border:1px solid black;
+}
+.size-buttons-size-button {
+    position: relative;
+}
+
+.size-buttons-size-button-default {
+    background-color: #fff;
+    border: 1px solid #bfc0c6;
+    border-radius: 50px;
+    padding: 0;
+    min-width: 50px;
+    height: 50px;
+    text-align: center;
+    cursor: pointer;
+    color: #282c3f;
+    -webkit-box-flex: 0;
+    -ms-flex: 0 0 auto;
+    flex: 0 0 auto;
+    position: relative;
+}
+.size-buttons-size-button-default:hover{
+    color:#ff3f6c
+}
+.size-buttons-size-button-default:focus{
+    color: #ff3f6c;
+    border: 1px solid #ff3f6c;
+}
+.size-buttons-size-button-selected {
+    border: 1px solid #ff3f6c;
+    background-color: #fff;
+    color: #ff3f6c!important;
+}
+.size-buttons-unified-size {
+    margin: 0;
+    font-size: 14px;
+    padding: 0 8px;
+    font-weight: 700;
+}
+.zoomable-image{
+    transition: transform 0.3s;
+}
+.zoomable-image:hover{
+    transform: scale(1.3);
+    
+}
